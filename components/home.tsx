@@ -28,7 +28,6 @@ const Main = () => {
                 <h1 className='title1'>Hello, I&apos;m <strong className='title1'>Muskaan Fayyaz</strong></h1>
                 <p>
                     I'm a <strong>{titles[currentTitleIndex]}</strong>,<br />
-                    specializing in web development.
                 </p>
                 <br /><br />
                 <a href="#skills" className='btn'>Skills</a>
