@@ -1,0 +1,41 @@
+.licensesSection {
+    padding: 50px;
+    background-color: #fff;
+  }
+  
+  .title {
+    color: #970747;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .certificationsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .certificationCard {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .certificationCard:hover {
+    transform: translateY(-10px);
+  }
+  
+  .certificateImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .issuer, .issued, .skills {
+    margin: 10px 0;
+    color: #333;
+  }
+  
