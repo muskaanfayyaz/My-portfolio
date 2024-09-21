@@ -50,7 +50,7 @@ const Projects = () => {
       title: 'Rivo Fashion Website',
       description: 'A fashion design website that allows users to explore and shop for clothing, accessories, and designer products, offering sections like home, shop, features, and contact, along with best-selling items and exclusive offers.',
       image: '/rivo-fashion.png',
-      github: 'https://github.com/muskaanfayyaz/rivo-fashion',
+      github: 'https://github.com/muskaanfayyaz/fashion-website',
     },
   ];
 
