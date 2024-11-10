@@ -25,7 +25,7 @@ const Main = () => {
     return (
         <div className="main">
             <div className='child-container1'>
-                <h1 className='title1'>Hello, I&apos;m <strong className='title1'>Muskaan Fayyaz</strong></h1>
+                <h1 className='title1'>Hello, I&apos;m <strong className='title2'>Muskaan Fayyaz</strong></h1>
                 <p>
                     I'm a <strong>{titles[currentTitleIndex]}</strong>,<br />
                 </p>
@@ -34,7 +34,7 @@ const Main = () => {
                 <a href="#projects" className='btn'>Projects</a>
             </div>
             <div className='child-container2'>
-                <Image src="/main.png" alt="My Photo" width={200} height={200} priority className="rounded-image" />
+                <Image src="/main.png" alt="My Photo" width={300} height={300} priority className="rounded-image" />
             </div>
         </div>
     );

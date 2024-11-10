@@ -2,42 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Header Section */
-header {
-  color: #970747;
-  padding: 10px 0;
-  text-align: center;
-  position: fixed; /* Fixes the header to the top */
-  top: 0; /* Aligns it to the top of the viewport */
-  left: 0; /* Aligns it to the left of the viewport */
-  width: 100%; /* Full width */
-  background-color: white; /* Background color for visibility */
-  z-index: 1000; /* Ensures it stays above other content */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  color: rgb(151, 7, 71);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-header nav ul {
-  list-style: none;     
-  padding: 0;            
-  margin: 0;             
-  display: flex;         
-  justify-content: center; 
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-header nav ul li {
-  margin: 0 15px;        
+/* Desktop Navigation */
+.nav {
+  display: flex;
 }
 
-header nav ul li a {
-  text-decoration: none; 
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 25px;
 }
 
-header nav ul li a:hover {
-  text-decoration: underline; 
+.nav-list li a {
+  text-decoration: none;
+  color: rgb(151, 7, 71);
+  transition: color 0.3s;
+  font-weight: bold;
 }
 
-body {
-  padding-top: 60px; /* Adjust this based on the height of your navbar */
+.nav-list li a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.line {
+  height: 3px;
+  width: 25px;
+  background-color: rgb(151, 7, 71);
+  margin: 4px 0;
+  transition: all 0.3s;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.mobile-nav-list li a {
+  text-decoration: none;
+  color: rgb(151, 7, 71);
+}
+
+/* Responsive Styles */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* For screens larger than 1440px */
+@media (min-width: 1440px) {
+  .header {
+    padding: 20px 50px; /* Increase padding for larger screens */
+  }
+
+  .logo {
+    font-size: 2.5rem; /* Larger logo for 1440px and above */
+  }
+
+  .nav-list {
+    gap: 40px; /* Increase gap between nav links */
+  }
+
+  .nav-list li a {
+    font-size: 1.4rem; /* Increase font size of nav links */
+  }
+}
+
+/* For screens 2560px and larger */
+@media (min-width: 2560px) {
+  .header {
+    padding: 30px 80px; /* Even larger padding for ultra-wide screens */
+  }
+
+  .logo {
+    font-size: 3rem; /* Even larger logo for very large screens */
+  }
+
+  .nav-list {
+    gap: 50px; /* Increase gap between nav links */
+  }
+
+  .nav-list li a {
+    font-size: 1.9rem; /* Larger font size for nav links */
+  }
 }
 
 
@@ -58,66 +162,193 @@ body {
   padding: 0;
 }
 
-/* Home Section */
-.child-container1 {
-  padding: 20px;
-  width: 60%;
-  height: 100%;
-  background-color: #FFFFFF;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  font-size: x-large;
-  font-weight: bold;
-}
-
-.child-container2 {
-  padding: 20px;
-  width: 40%;
-  height: 100%;
-  background-color: #FFFFFF;
-  margin-top: 5%;
-  margin-bottom: 10%;
-}
-
-.child-container1 {
-  padding: 20px; /* Ensure enough padding */
-}
-
-.child-container2 img {
-  margin-top: 10px; /* Adjust if needed */
-  margin-left: 40px;
-}
-
-/* Layout Styling */
+/* Main Container */
 .main {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Image Styling */
+/* Child containers */
+.child-container1,
+.child-container2 {
+  flex: 1;
+  padding: 20px;
+  max-width: 100%; /* Prevent elements from exceeding viewport */
+  box-sizing: border-box;
+}
+
+/* Heading in child-container1 */
+.child-container1 h1 {
+  color: #8a0541;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Paragraph in child-container1 */
+.child-container1 p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Button styles */
+.buttons {
+  margin-top: 20px;
+}
+
+/* Child container2 (image container) */
+.child-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image styles */
 .rounded-image {
   border-radius: 80%;
+  transition: transform 0.3s ease;
+  max-width: 100%; /* Prevent image from overflowing */
+  height: auto;
 }
 
-/* General Styling for Main Section */
-main {
-  background-color: #FFFFFF;
+/* Title2 (secondary heading) */
+.title2 {
+  font-size: 4rem;
 }
 
-/* Emphasized Text */
-strong {
-  color: #8a0541;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: x-large;
+/* Responsive adjustments */
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  .main {
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column; /* Stack the child containers */
+  }
+
+  /* Centering items in child-container1 */
+  .child-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center; /* Center text */
+  }
+
+  .child-container1 h1 {
+    font-size: 2rem;
+  }
+
+  .child-container1 p {
+    font-size: 1.2rem;
+  }
+
+  .child-container2 .rounded-image {
+    max-width: 80%; /* Make the image smaller */
+  }
+
+  .title2 {
+    font-size: 3rem;
+  }
 }
 
-.title1 {
-  color: #8a0541;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: xx-large;
-  animation: slideUp 1s ease-in-out;
-  text-align:left ;
+/* For screens between 425px and 768px */
+@media (max-width: 768px) and (min-width: 425px) {
+  .main {
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .child-container1 h1 {
+    font-size: 2.5rem;
+  }
+
+  .child-container1 p {
+    font-size: 1.4rem;
+  }
 }
+
+/* For screens smaller than 425px */
+@media (max-width: 425px) {
+  .main {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .child-container1 h1 {
+    font-size: 1.8rem;
+  }
+
+  .child-container1 p {
+    font-size: 1.2rem;
+  }
+
+  .child-container2 .rounded-image {
+    max-width: 90%;
+  }
+
+  .title2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* For screens larger than 1440px (including 2560px screens) */
+@media (min-width: 1440px) {
+  .main {
+    padding: 60px;
+    gap: 60px;
+  }
+
+  .child-container1 h1 {
+    font-size: 4rem;
+  }
+
+  .child-container1 p {
+    font-size: 1.8rem;
+  }
+
+  .child-container2 .rounded-image {
+    max-width: 50%; /* Adjust image size for large screens */
+  }
+
+  .title2 {
+    font-size: 5rem;
+  }
+}
+
+/* For screens 2560px and larger */
+@media (min-width: 2560px) {
+  .main {
+    padding: 80px; /* Larger padding for very wide screens */
+    gap: 80px; /* Wider gap between child containers */
+  }
+
+  .child-container1 h1 {
+    font-size: 5rem; /* Larger text for very wide screens */
+  }
+
+  .child-container1 p {
+    font-size: 2rem;
+  }
+
+  .child-container2 .rounded-image {
+    max-width: 40%; /* Further reduce image size for very wide screens */
+  }
+
+  .title2 {
+    font-size: 6rem;
+  }
+}
+
 
 /* Button Styling */
 .btn {
@@ -126,24 +357,16 @@ strong {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  font-size: medium;
+  font-size: 1rem;
   border-radius: 10%;
+  margin-top: 2rem;
   margin-right: 10px;
-} 
-
-.rounded-image {
-  border-radius: 80%;
-  transition: transform 0.3s ease;
-}
-
-
-.btn {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #550629; /* Darker shade on hover */
-  transform: scale(1.05); /* Enlarge button on hover */
+  background-color: #550629;
+  transform: scale(1.05);
 }
 
 /* Skill Section */
@@ -161,9 +384,10 @@ body {
   padding: 50px;
   background: linear-gradient(45deg, var(--primary-color), #fff);
   border-radius: 10px;
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .skills-title {
@@ -199,6 +423,72 @@ body {
   font-size: 30px;
   margin-bottom: 10px;
 }
+
+/* Media Queries for Full Width on Large Screens */
+@media (min-width: 1440px) {
+  .skills-container {
+    max-width: 100%; /* Full width for 1440px and larger screens */
+    padding: 80px; /* Extra padding for a spacious look */
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row on 1440px screens */
+  }
+}
+
+@media (min-width: 2560px) {
+  .skills-container {
+    padding: 100px; /* Increased padding for extra large screens */
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row on 2560px screens */
+  }
+}
+
+/* Media Queries for Responsive Layout */
+@media (max-width: 1440px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row for large desktops */
+  }
+}
+
+@media (max-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row for tablets */
+  }
+}
+
+@media (max-width: 425px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* 1 item per row for small screens */
+  }
+}
+
+@media (max-width: 375px) {
+  .skills-title {
+    font-size: 28px; /* Adjust title font size for very small screens */
+  }
+  .skill-icon {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .skills-title {
+    font-size: 24px; /* Adjust font size for the smallest screens */
+  }
+  .skill-icon {
+    font-size: 20px;
+  }
+}
+
 /* Certification Section */
 
 .certificationSection {
@@ -280,7 +570,6 @@ body {
 
 /* Certification session */
 
-/* styles/globals.css */
 body {
   font-family: 'Arial', sans-serif;
   background-color: #fff;
@@ -381,6 +670,142 @@ button:hover {
   margin: 10px 0;
   color: #333;
 }
+
+/* Responsive Design for various screen sizes */
+
+/* For screens 320px and up */
+@media (max-width: 320px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .certCard {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+
+  .skillsList {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skillItem {
+    padding: 8px 15px;
+    font-size: 1rem;
+  }
+}
+
+/* For screens 375px and up */
+@media (max-width: 375px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .certCard {
+    padding: 18px;
+  }
+
+  .skillsList {
+    gap: 12px;
+  }
+
+  .skillItem {
+    font-size: 1.1rem;
+  }
+}
+
+/* For screens 425px and up */
+@media (max-width: 425px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .certCard {
+    padding: 20px;
+    font-size: 1rem;
+  }
+
+  .skillsList {
+    gap: 15px;
+  }
+
+  .skillItem {
+    padding: 12px 18px;
+  }
+}
+
+/* For screens 768px and up */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .certContainer {
+    justify-content: space-between;
+  }
+
+  .certCard {
+    padding: 25px;
+  }
+
+  .skillsSection {
+    margin-top: 40px;
+  }
+
+  .skillsList {
+    gap: 20px;
+  }
+}
+
+/* For screens 1024px and up */
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 2.7rem;
+  }
+
+  .certContainer {
+    gap: 25px;
+  }
+
+  .certCard {
+    padding: 30px;
+  }
+
+  .skillsSection {
+    margin-top: 60px;
+  }
+}
+
+/* For screens 1440px and up */
+@media (max-width: 1440px) {
+  .heading {
+    font-size: 3rem;
+  }
+
+  .certCard {
+    padding: 35px;
+  }
+
+  .skillsSection {
+    margin-top: 70px;
+  }
+}
+
+/* For screens 2560px and up */
+@media (max-width: 2560px) {
+  .heading {
+    font-size: 4rem;
+  }
+
+  .certCard {
+    padding: 40px;
+  }
+
+  .skillsList {
+    gap: 30px;
+  }
+}
+
 
 /* Projects */
 
